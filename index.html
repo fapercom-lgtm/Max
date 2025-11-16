@@ -1,0 +1,71 @@
+
+<html>
+<head>
+<style>
+body {
+  text-align:center;
+  background:#fff;
+  font-family:sans-serif;
+}
+
+#loader {
+  display:none;
+  margin-top:30px;
+}
+
+.spinner {
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top-color: #1E76FF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+  <img src="maks.png" style="width:80%; max-width:400px; margin-top:40px;" />
+
+  <br><br>
+
+  <button onclick="install()" style="padding:15px; font-size:20px; background:#1E76FF; color:#fff; border:none; border-radius:10px; width:250px;">
+    УСТАНОВИТЬ
+  </button>
+
+  <br><br>
+
+  <button onclick="cancel()" style="padding:15px; font-size:20px; background:#eee; color:#000; border:none; border-radius:10px; width:250px;">
+    ОТМЕНИТЬ УСТАНОВКУ
+  </button>
+
+  <div id="loader">
+    <div class="spinner"></div>
+    <p style="font-size:18px; margin-top:10px;">Установка...</p>
+  </div>
+
+  <audio id="cancelSound" src="sound.wav"></audio>
+
+  <script>
+    function install() {
+      document.getElementById("loader").style.display = "block";
+      // Simulate installation delay
+      setTimeout(() => {
+        alert("Установка завершена!");
+        document.getElementById("loader").style.display = "none";
+      }, 3000);
+    }
+
+    function cancel() {
+      document.getElementById("cancelSound").play();
+    }
+  </script>
+
+</body>
+</html>
